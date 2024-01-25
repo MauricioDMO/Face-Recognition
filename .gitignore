@@ -1,0 +1,6 @@
+
+# Ignore all .DS_Store files in this project
+**/.DS_Store
+
+# ignore virtualenv
+env/
