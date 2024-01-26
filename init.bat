@@ -11,9 +11,8 @@ if exist "env" (
     echo Activando entorno virtual
     env\Scripts\activate
     echo Instalando dependencias
+    echo.
     pip install -r requirements.txt
+    echo.
     echo Entorno virtual creado y activado
 )
-
-echo.
-echo Para desactivar el entorno, ejecuta: deactivate
