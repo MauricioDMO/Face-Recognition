@@ -8,6 +8,11 @@ def load():
     A list of tuples representing the records from the 'people' table.
   """
   CONNECTION = sql.connect("face-recognition.db")
+  
   cursor = CONNECTION.cursor()
   response = cursor.execute("SELECT * FROM people")
-  return response.fetchall()
+  list = response.fetchall()
+  
+  CONNECTION.close()
+  return list
+
