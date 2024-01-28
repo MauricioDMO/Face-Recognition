@@ -6,7 +6,7 @@ cursor = conn.cursor()
 
 #? Create the table roles.
 cursor.execute("""CREATE TABLE IF NOT EXISTS roles (
-                id integer PRIMARY KEY,
+                id integer PRIMARY KEY AUTOINCREMENT,
                 name text,
                 description text
               )""")
@@ -14,7 +14,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS roles (
 
 #? Create the table people.
 cursor.execute("""CREATE TABLE IF NOT EXISTS people (
-                id integer PRIMARY KEY,
+                id integer PRIMARY KEY AUTOINCREMENT,
                 name text NOT NULL,
                 lastname text NOT NULL,
                 carnet text NOT NULL,
@@ -27,7 +27,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS people (
 
 #? Create the table buildings.
 cursor.execute("""CREATE TABLE IF NOT EXISTS buildings (
-                id integer PRIMARY KEY,
+                id integer PRIMARY KEY AUTOINCREMENT,
                 building text NOT NULL,
                 classroom text NOT NULL
               )""")
@@ -35,7 +35,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS buildings (
 
 #? Create the table assists.
 cursor.execute("""CREATE TABLE IF NOT EXISTS assists (
-                id integer PRIMARY KEY,
+                id integer PRIMARY KEY AUTOINCREMENT,
                 date text NOT NULL,
                 time text NOT NULL,
                 person_id int NOT NULL,
