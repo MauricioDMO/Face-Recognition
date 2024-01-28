@@ -29,7 +29,16 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS people (
 cursor.execute("""CREATE TABLE IF NOT EXISTS buildings (
                 id integer PRIMARY KEY AUTOINCREMENT,
                 building text NOT NULL,
-                classroom text NOT NULL
+              )""")
+
+
+#? Create the table classrooms.
+cursor.execute("""CREATE TABLE IF NOT EXISTS classrooms (
+                id integer PRIMARY KEY AUTOINCREMENT,
+                classroom text NOT NULL,
+                building_id int NOT NULL,
+                FOREIGN KEY (building_id)
+                  REFERENCES buildings (id)
               )""")
 
 
