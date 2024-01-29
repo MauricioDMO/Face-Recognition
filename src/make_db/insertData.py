@@ -54,3 +54,13 @@ def init():
                          ("Sabado")
                         """)
   CONNECTION.commit()
+
+  hours = [
+    ("06:20", "08:00"),
+    ("08:10", "09:50"),
+    ("10:00", "11:40")
+  ]
+  #? insert hours into the table hours.
+  cursor.execute("""INSERT INTO hours (start_time, end_time) values (?, ?)""", hours)
+  CONNECTION.commit()
+  
