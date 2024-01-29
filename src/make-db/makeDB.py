@@ -17,7 +17,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS people (
                 id integer PRIMARY KEY AUTOINCREMENT,
                 name text NOT NULL,
                 lastname text NOT NULL,
-                carnet text NOT NULL,
+                carnet text,
                 image blob NOT NULL,
                 role_id int NOT NULL,
                 FOREIGN KEY (role_id)
