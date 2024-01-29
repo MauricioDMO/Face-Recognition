@@ -1,7 +1,7 @@
 import sqlite3 as sql
 
-conn = sql.connect("face-recognition.db")
-cursor = conn.cursor()
+CONNECTION = sql.connect("face-recognition.db")
+cursor = CONNECTION.cursor()
 
 
 #? Create the table roles.
@@ -129,4 +129,4 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS assists (
                   REFERENCES classes (id)
               )""")
 
-conn.close()
+CONNECTION.close()
