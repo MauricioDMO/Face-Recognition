@@ -43,3 +43,14 @@ def init():
   #? insert classrooms into the table classrooms.
   cursor.execute("""INSERT INTO classrooms (classroom, building_id) values (?, ?)""", classrooms)
   CONNECTION.commit()
+  
+  #? insert days into the table days. 
+  cursor.execute("""INSERT INTO days (day)
+                  VALUES ("Lunes"),
+                         ("Martes"),
+                         ("Miercoles"),
+                         ("Jueves"),
+                         ("Viernes"),
+                         ("Sabado")
+                        """)
+  CONNECTION.commit()
