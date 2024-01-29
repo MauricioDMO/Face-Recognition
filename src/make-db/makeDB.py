@@ -58,6 +58,14 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS schedules (
               )""")
 
 
+#? Create the table subjects.
+cursor.execute("""CREATE TABLE IF NOT EXISTS subjects (
+                id integer PRIMARY KEY AUTOINCREMENT,
+                name text NOT NULL
+              )""")
+
+
+
 #? Create the table people.
 cursor.execute("""CREATE TABLE IF NOT EXISTS people (
                 id integer PRIMARY KEY AUTOINCREMENT,
