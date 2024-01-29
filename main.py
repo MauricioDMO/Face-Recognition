@@ -1,6 +1,10 @@
-import cv2, json, numpy as np, sqlite3 as sql
+import cv2, json, numpy as np, sqlite3 as sql, os
+from src.make_db import makeDB
 
 def main():
+  if not os.path.exists("face-recognition.db"):
+    makeDB.init()
+    
   image = cv2.imread("main2.jpg", cv2.IMREAD_GRAYSCALE)
 
   list = image.tolist()
