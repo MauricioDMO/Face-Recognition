@@ -36,8 +36,6 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS days (
               )""")
 
 
-
-
 #? Create the table hours.
 cursor.execute("""CREATE TABLE IF NOT EXISTS hours (
                 id integer PRIMARY KEY AUTOINCREMENT,
@@ -75,7 +73,6 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS states (
 #? Create the table classes.
 cursor.execute("""CREATE TABLE IF NOT EXISTS classes (
                 id integer PRIMARY KEY AUTOINCREMENT,
-                name text NOT NULL,
                 classroom_id int NOT NULL,
                 schedule_id int NOT NULL,
                 subject_id int NOT NULL,
@@ -99,6 +96,9 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS people (
                 carnet text,
                 image blob NOT NULL,
                 role_id int NOT NULL,
+                state_id int NOT NULL,
+                FOREIGN KEY (role_id)
+                  REFERENCES roles (id)
                 FOREIGN KEY (role_id)
                   REFERENCES roles (id)
               )""")
