@@ -12,19 +12,6 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS roles (
               )""")
 
 
-#? Create the table people.
-cursor.execute("""CREATE TABLE IF NOT EXISTS people (
-                id integer PRIMARY KEY AUTOINCREMENT,
-                name text NOT NULL,
-                lastname text NOT NULL,
-                carnet text,
-                image blob NOT NULL,
-                role_id int NOT NULL,
-                FOREIGN KEY (role_id)
-                  REFERENCES roles (id)
-              )""")
-
-
 #? Create the table buildings.
 cursor.execute("""CREATE TABLE IF NOT EXISTS buildings (
                 id integer PRIMARY KEY AUTOINCREMENT,
@@ -53,6 +40,19 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS assists (
                   REFERENCES people (id)
                 FOREIGN KEY (building_id)
                   REFERENCES buildings (id)
+              )""")
+
+
+#? Create the table people.
+cursor.execute("""CREATE TABLE IF NOT EXISTS people (
+                id integer PRIMARY KEY AUTOINCREMENT,
+                name text NOT NULL,
+                lastname text NOT NULL,
+                carnet text,
+                image blob NOT NULL,
+                role_id int NOT NULL,
+                FOREIGN KEY (role_id)
+                  REFERENCES roles (id)
               )""")
 
 conn.close()
