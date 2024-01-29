@@ -41,7 +41,7 @@ def init():
   ]
   
   #? insert classrooms into the table classrooms.
-  cursor.execute("""INSERT INTO classrooms (classroom, building_id) values (?, ?)""", classrooms)
+  cursor.executemany("""INSERT INTO classrooms (classroom, building_id) values (?, ?)""", classrooms)
   CONNECTION.commit()
   
   #? insert days into the table days. 
@@ -61,7 +61,7 @@ def init():
     ("10:00", "11:40")
   ]
   #? insert hours into the table hours.
-  cursor.execute("""INSERT INTO hours (start_time, end_time) values (?, ?)""", hours)
+  cursor.executemany("""INSERT INTO hours (start_time, end_time) values (?, ?)""", hours)
   CONNECTION.commit()
   
   schedules = [
@@ -80,7 +80,7 @@ def init():
   ]
   
   #? insert schedules into the table schedules.
-  cursor.execute("""INSERT INTO schedules (day_id, hour_id) values (?, ?)""", schedules)
+  cursor.executemany("""INSERT INTO schedules (day_id, hour_id) values (?, ?)""", schedules)
   CONNECTION.commit()
   
   #? insert states into the table states.
