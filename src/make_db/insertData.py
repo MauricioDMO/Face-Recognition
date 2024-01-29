@@ -84,8 +84,8 @@ def init():
   CONNECTION.commit()
   
   #? insert states into the table states.
-  cursor.execute("""INSERT INTO states (name) values ("Activo"), ("Inactivo")""")
+  cursor.execute("""INSERT INTO states (state) values ("Activo"), ("Inactivo")""")
   CONNECTION.commit()
-  cursor.execute("""INSERT INTO states (id, name) values (0, "Eliminado")""")
+  cursor.execute("""INSERT INTO states (id, state) values (0, "Eliminado")""")
   CONNECTION.commit()
   
