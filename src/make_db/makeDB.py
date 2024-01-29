@@ -23,7 +23,7 @@ def init():
   cursor.execute("""CREATE TABLE IF NOT EXISTS classrooms (
                   id integer PRIMARY KEY AUTOINCREMENT,
                   classroom text NOT NULL,
-                  building_id int NOT NULL,
+                  building_id integer NOT NULL,
                   FOREIGN KEY (building_id)
                     REFERENCES buildings (id)
                 )""")
@@ -47,8 +47,8 @@ def init():
   #?  Create the table schedules.
   cursor.execute("""CREATE TABLE IF NOT EXISTS schedules (
                   id integer PRIMARY KEY AUTOINCREMENT,
-                  day_id text NOT NULL,
-                  hour_id text NOT NULL,
+                  day_id integer NOT NULL,
+                  hour_id integer NOT NULL,
                   FOREIGN KEY (day_id)
                     REFERENCES days (id)
                   FOREIGN KEY (hour_id)
@@ -73,10 +73,10 @@ def init():
   #? Create the table classes.
   cursor.execute("""CREATE TABLE IF NOT EXISTS classes (
                   id integer PRIMARY KEY AUTOINCREMENT,
-                  classroom_id int NOT NULL,
-                  schedule_id int NOT NULL,
-                  subject_id int NOT NULL,
-                  state_id int NOT NULL,
+                  classroom_id integer NOT NULL,
+                  schedule_id integer NOT NULL,
+                  subject_id integer NOT NULL,
+                  state_id integer NOT NULL,
                   FOREIGN KEY (state_id)
                     REFERENCES states (id)
                   FOREIGN KEY (schedule_id)
@@ -95,8 +95,8 @@ def init():
                   lastname text NOT NULL,
                   carnet text,
                   image blob NOT NULL,
-                  role_id int NOT NULL,
-                  state_id int NOT NULL,
+                  role_id integer NOT NULL,
+                  state_id integer NOT NULL,
                   FOREIGN KEY (role_id)
                     REFERENCES roles (id)
                   FOREIGN KEY (role_id)
@@ -107,8 +107,8 @@ def init():
   #? Create the table classes_people.
   cursor.execute("""CREATE TABLE IF NOT EXISTS classes_people (
                   id integer PRIMARY KEY AUTOINCREMENT,
-                  person_id int NOT NULL,
-                  class_id int NOT NULL,
+                  person_id integer NOT NULL,
+                  class_id integer NOT NULL,
                   FOREIGN KEY (person_id)
                     REFERENCES people (id)
                   FOREIGN KEY (class_id)
@@ -121,8 +121,8 @@ def init():
                   id integer PRIMARY KEY AUTOINCREMENT,
                   date text NOT NULL,
                   time text NOT NULL,
-                  person_id int NOT NULL,
-                  class_id int NOT NULL,
+                  person_id integer NOT NULL,
+                  class_id integer NOT NULL,
                   FOREIGN KEY (person_id)
                     REFERENCES people (id)
                   FOREIGN KEY (class_id)
