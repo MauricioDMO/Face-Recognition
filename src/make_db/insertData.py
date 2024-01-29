@@ -79,7 +79,8 @@ def init():
     (4, 3)
   ]
   
-#? insert schedules into the table schedules.
+  #? insert schedules into the table schedules.
   cursor.execute("""INSERT INTO schedules (day_id, hour_id) values (?, ?)""", schedules)
   CONNECTION.commit()
+  
   
