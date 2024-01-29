@@ -64,3 +64,22 @@ def init():
   cursor.execute("""INSERT INTO hours (start_time, end_time) values (?, ?)""", hours)
   CONNECTION.commit()
   
+  schedules = [
+    (1, 1),
+    (3, 1),
+    (1, 2),
+    (3, 2),
+    (1, 3),
+    (3, 3),
+    (2, 1),
+    (4, 1),
+    (2, 2),
+    (4, 2),
+    (2, 3),
+    (4, 3)
+  ]
+  
+#? insert schedules into the table schedules.
+  cursor.execute("""INSERT INTO schedules (day_id, hour_id) values (?, ?)""", schedules)
+  CONNECTION.commit()
+  
