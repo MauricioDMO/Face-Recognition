@@ -4,3 +4,6 @@
 
 # ignore virtualenv
 env/
+
+# ignore face-recognition.db
+**/face-recognition.db
