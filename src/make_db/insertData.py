@@ -42,4 +42,4 @@ def init():
   
   #? insert classrooms into the table classrooms.
   cursor.execute("""INSERT INTO classrooms (classroom, building_id) values (?, ?)""", classrooms)
-  
+  CONNECTION.commit()
