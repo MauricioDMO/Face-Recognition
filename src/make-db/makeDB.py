@@ -15,7 +15,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS roles (
 #? Create the table buildings.
 cursor.execute("""CREATE TABLE IF NOT EXISTS buildings (
                 id integer PRIMARY KEY AUTOINCREMENT,
-                building text NOT NULL,
+                building text NOT NULL
               )""")
 
 
@@ -32,7 +32,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS classrooms (
 #? Create the table days.
 cursor.execute("""CREATE TABLE IF NOT EXISTS days (
                 id integer PRIMARY KEY AUTOINCREMENT,
-                day text NOT NULL,
+                day text NOT NULL
               )""")
 
 
