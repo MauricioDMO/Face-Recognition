@@ -110,11 +110,11 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS assists (
                 date text NOT NULL,
                 time text NOT NULL,
                 person_id int NOT NULL,
-                building_id int NOT NULL,
+                class_id int NOT NULL,
                 FOREIGN KEY (person_id)
                   REFERENCES people (id)
-                FOREIGN KEY (building_id)
-                  REFERENCES buildings (id)
+                FOREIGN KEY (class_id)
+                  REFERENCES classes (id)
               )""")
 
 conn.close()
