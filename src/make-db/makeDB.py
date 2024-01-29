@@ -37,6 +37,16 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS days (
 
 
 
+
+#? Create the table hours.
+cursor.execute("""CREATE TABLE IF NOT EXISTS hours (
+                id integer PRIMARY KEY AUTOINCREMENT,
+                start_time text NOT NULL,
+                end_time text NOT NULL
+              )""")
+
+
+
 #? Create the table people.
 cursor.execute("""CREATE TABLE IF NOT EXISTS people (
                 id integer PRIMARY KEY AUTOINCREMENT,
