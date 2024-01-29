@@ -13,7 +13,15 @@ def init():
                          """)
   CONNECTION.commit()
   
+  #? insert buildings into the table buildings.
+  cursor.execute("""INSERT INTO buildings (building)
+                  VALUES ("A"),
+                         ("B"),
+                         ("C"),
+                         ("D"),
+                         ("E"),
+                         ("EBLE"),
+                         ("Posgrado")
+                        """)
+  CONNECTION.commit()
   
-  
-  
-                        
