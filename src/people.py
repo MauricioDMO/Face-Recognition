@@ -1,6 +1,6 @@
 import sqlite3 as sql
 
-def load():
+def loadAllPeople():
   """
   Load all the records from the 'people' table in the 'face-recognition.db' database.
 
