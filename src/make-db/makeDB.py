@@ -46,6 +46,17 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS hours (
               )""")
 
 
+#?  Create the table schedules.
+cursor.execute("""CREATE TABLE IF NOT EXISTS schedules (
+                id integer PRIMARY KEY AUTOINCREMENT,
+                day_id text NOT NULL,
+                hour_id text NOT NULL,
+                FOREIGN KEY (day_id)
+                  REFERENCES days (id)
+                FOREIGN KEY (hour_id)
+                  REFERENCES hours (id)
+              )""")
+
 
 #? Create the table people.
 cursor.execute("""CREATE TABLE IF NOT EXISTS people (
