@@ -29,6 +29,14 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS classrooms (
               )""")
 
 
+#? Create the table days.
+cursor.execute("""CREATE TABLE IF NOT EXISTS days (
+                id integer PRIMARY KEY AUTOINCREMENT,
+                day text NOT NULL,
+              )""")
+
+
+
 #? Create the table people.
 cursor.execute("""CREATE TABLE IF NOT EXISTS people (
                 id integer PRIMARY KEY AUTOINCREMENT,
