@@ -7,3 +7,6 @@ env/
 
 # ignore face-recognition.db
 **/face-recognition.db
+
+# ignore __pycache__
+**/__pycache__/
