@@ -104,6 +104,18 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS people (
               )""")
 
 
+#? Create the table classes_people.
+cursor.execute("""CREATE TABLE IF NOT EXISTS classes_people (
+                id integer PRIMARY KEY AUTOINCREMENT,
+                person_id int NOT NULL,
+                class_id int NOT NULL,
+                FOREIGN KEY (person_id)
+                  REFERENCES people (id)
+                FOREIGN KEY (class_id)
+                  REFERENCES classes (id)
+              )""")
+
+
 #? Create the table assists.
 cursor.execute("""CREATE TABLE IF NOT EXISTS assists (
                 id integer PRIMARY KEY AUTOINCREMENT,
