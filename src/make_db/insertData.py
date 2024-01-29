@@ -83,4 +83,9 @@ def init():
   cursor.execute("""INSERT INTO schedules (day_id, hour_id) values (?, ?)""", schedules)
   CONNECTION.commit()
   
+  #? insert states into the table states.
+  cursor.execute("""INSERT INTO states (name) values ("Activo"), ("Inactivo")""")
+  CONNECTION.commit()
+  cursor.execute("""INSERT INTO states (id, name) values (0, "Eliminado")""")
+  CONNECTION.commit()
   
