@@ -72,6 +72,24 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS states (
               )""")
 
 
+#? Create the table classes.
+cursor.execute("""CREATE TABLE IF NOT EXISTS classes (
+                id integer PRIMARY KEY AUTOINCREMENT,
+                name text NOT NULL,
+                classroom_id int NOT NULL,
+                schedule_id int NOT NULL,
+                subject_id int NOT NULL,
+                state_id int NOT NULL,
+                FOREIGN KEY (state_id)
+                  REFERENCES states (id)
+                FOREIGN KEY (schedule_id)
+                  REFERENCES schedules (id)
+                FOREIGN KEY (subject_id)
+                  REFERENCES subjects (id)
+                FOREIGN KEY (classroom_id)
+                  REFERENCES classrooms (id)
+              )""")
+
 
 #? Create the table people.
 cursor.execute("""CREATE TABLE IF NOT EXISTS people (
