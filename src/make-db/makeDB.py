@@ -65,6 +65,13 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS subjects (
               )""")
 
 
+#? Create the table states.
+cursor.execute("""CREATE TABLE IF NOT EXISTS states (
+                id integer PRIMARY KEY AUTOINCREMENT,
+                state text NOT NULL
+              )""")
+
+
 
 #? Create the table people.
 cursor.execute("""CREATE TABLE IF NOT EXISTS people (
