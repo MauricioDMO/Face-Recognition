@@ -51,8 +51,6 @@ git push origin <nombre-rama>
 Finalmente debe crear un pull request para que los cambios sean revisados y posteriormente aprobados.
 
 ---
-# Desarrolladores
+# Contribuidores
 
-@MauricioDMO
-@SergioCode08
-@balmorecruz
+<img src="https://contrib.rocks/image?repo=MauricioDMO/Face-recognition" alt="Contribuidores del proyecto">
