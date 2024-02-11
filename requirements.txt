@@ -1,5 +1,12 @@
+black==24.1.1
+click==8.1.7
+colorama==0.4.6
+mypy-extensions==1.0.0
 numpy==1.26.3
 opencv-python==4.9.0.80
+packaging==23.2
+pathspec==0.12.1
+platformdirs==4.2.0
 PySide6==6.6.1
 PySide6-Addons==6.6.1
 PySide6-Essentials==6.6.1
