@@ -3,6 +3,7 @@
     "ms-python.python",
     "ms-python.vscode-pylance",
     "qwtel.sqlite-viewer",
-    "ms-python.black-formatter"
+    "ms-python.black-formatter",
+    "astro-build.astro-vscode"
   ]
 }
