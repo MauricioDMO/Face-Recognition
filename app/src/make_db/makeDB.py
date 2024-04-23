@@ -105,7 +105,6 @@ def init():
                   name text NOT NULL,
                   lastname text NOT NULL,
                   carnet text,
-                  image blob NOT NULL,
                   role_id integer NOT NULL,
                   state_id integer NOT NULL,
                   FOREIGN KEY (role_id)
@@ -113,6 +112,17 @@ def init():
                   FOREIGN KEY (role_id)
                     REFERENCES roles (id)
                 )"""
+    )
+
+    # ? Create the table images.
+    cursor.execute(
+        """CREATE TABLE IF NOT EXISTS images (
+                id integer PRIMARY KEY AUTOINCREMENT,
+                people_id integer NOT NULL,
+                image blob NOT NULL,
+                FOREIGN KEY (people_id)
+                  REFERENCES people (id)
+              )"""
     )
 
     # ? Create the table classes_people.
