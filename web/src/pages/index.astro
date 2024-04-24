@@ -40,18 +40,27 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  const usuario = document.getElementById("usuario");
-  const contraseña = document.getElementById("contraseña");
   const form = document.querySelector("form");
+
+  localStorage.clear();
+
+  const users = await fetch("/json/maestros.json").then((response) =>
+    response.json()
+  );
+  console.log(users);
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const usuario = document.getElementById("usuario") as HTMLInputElement;
-    const contraseña = document.getElementById(
-      "contraseña"
-    ) as HTMLInputElement;
+    const currentUser = document.getElementById("usuario") as HTMLInputElement;
+    const password = document.getElementById("contraseña") as HTMLInputElement;
 
-    if (usuario.value === "ia.borisgay" && contraseña.value === "sisoy") {
+    if (
+      users.some(
+        (user) =>
+          user.user === currentUser.value && user.password === password.value
+      )
+    ) {
+      localStorage.setItem("usuario", currentUser.value);
       window.location.href = "/webdesktop";
     } else {
       alert("Usuario o contraseña incorrectos");
