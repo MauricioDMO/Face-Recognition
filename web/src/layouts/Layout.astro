@@ -4,9 +4,10 @@ import { ViewTransitions } from "astro:transitions";
 interface Props {
   title: string;
   icon?: string;
+  auth?: boolean;
 }
 
-const { title, icon = "/favicon.svg" } = Astro.props;
+const { title, auth, icon = "/favicon.svg" } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,5 +27,12 @@ const { title, icon = "/favicon.svg" } = Astro.props;
         font-family: system-ui, sans-serif;
       }
     </style>
+    {
+      auth && (
+        <script type="module">
+          localStorage.getItem("user") || location.replace("/");
+        </script>
+      )
+    }
   </body>
 </html>
