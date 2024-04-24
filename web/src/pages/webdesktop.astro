@@ -23,8 +23,14 @@ const urls = [
   {
     image: "/webdesktop/clases.svg",
     alt: "Icono 3",
-    url: "#",
+    url: "/clases-impartidas",
     name: "Clases Impartidas",
+  },
+  {
+    image: "/webdesktop/cerrar-sesion.png",
+    alt: "Icono 4",
+    url: "/",
+    name: "Cerrar Sesión",
   },
 ];
 ---
@@ -32,7 +38,7 @@ const urls = [
 <Layout title="Webdesktop" icon="/webdesktop/webdesktop.ico">
   <div class="flex flex-col">
     <section class="desktop grow">
-      <nav class="flex flex-col gap-2 m-4">
+      <nav class="flex flex-col gap-5 m-4">
         {
           urls.map(({ image, alt, url, name }) => (
             <a href={url} class="flex flex-col items-center w-16 group">
