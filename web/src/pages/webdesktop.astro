@@ -1,0 +1,127 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const urls = [
+  {
+    image: "/webdesktop/estudiantes.png",
+    alt: "Icono 1",
+    url: "#",
+    name: "Estudiantes",
+  },
+  {
+    image: "/webdesktop/uvirtual.png",
+    alt: "Icono 2",
+    url: "#",
+    name: "Uvirtual",
+  },
+  {
+    image: "/webdesktop/biblioteca.png",
+    alt: "Icono 3",
+    url: "#",
+    name: "Biblioteca",
+  },
+  {
+    image: "/webdesktop/clases.svg",
+    alt: "Icono 3",
+    url: "#",
+    name: "Clases Impartidas",
+  },
+];
+---
+
+<Layout title="Webdesktop" icon="/webdesktop/webdesktop.ico">
+  <div class="flex flex-col">
+    <section class="desktop grow">
+      <nav class="flex flex-col gap-2 m-4">
+        {
+          urls.map(({ image, alt, url, name }) => (
+            <a href={url} class="flex flex-col items-center w-16">
+              <img class="size-12" src={image} alt={alt} />
+              <p class="text-xs text-center w-full line-clamp-1 hover:line-clamp-none">
+                {name}
+              </p>
+            </a>
+          ))
+        }
+      </nav>
+    </section>
+    <div class="taskbar">
+      <img src="/webdesktop/desktop.png" alt="Logo de Windows" />
+
+      <div id="date-time"></div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const dateTimeDisplay = document.getElementById("date-time");
+
+  function updateDateTime() {
+    const now = new Date();
+    const day = String(now.getDate()).padStart(2, "0");
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const hour = String(now.getHours()).padStart(2, "0");
+    const minute = String(now.getMinutes()).padStart(2, "0");
+    const dateTimeString = `${day}/${month} ${hour}:${minute}`;
+    dateTimeDisplay.textContent = dateTimeString;
+  }
+
+  updateDateTime();
+  setInterval(updateDateTime, 1000 * 60);
+</script>
+
+<style>
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .desktop {
+    background-image: url("/webdesktop/background.jpg");
+    background-size: cover; /* La imagen de fondo se ajusta al tamaño del contenedor */
+    background-position: center; /* La imagen de fondo se centra */
+    height: calc(
+      100% - 65px
+    ); /* Altura menos el espacio de la barra de tareas */
+    padding-bottom: 35px; /* Espacio para la barra de tareas */
+  }
+
+  .taskbar {
+    background: #cce5f5; /* Celeste */
+    color: #0e51a9;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+    box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+  }
+
+  .taskbar img {
+    height: 30px; /* Altura del logo de Windows */
+    width: 35px; /* Ancho del logo de Windows */
+  }
+
+  .taskbar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  #date-time {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 40px;
+    margin-left: 30px; /* Mover la fecha y hora hacia la izquierda */
+    color: rgb(14, 81, 169); /* Color del texto azul oscuro */
+  }
+</style>
