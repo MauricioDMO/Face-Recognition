@@ -1,0 +1,44 @@
+[
+  {
+    "user": "ia.jmlazo",
+    "classes": [
+      {
+        "name": "PROPONIENDO LA INNOVACIÓN TECNOLÓGICA",
+        "group": "1",
+        "attendance": "/"
+      },
+      {
+        "name": "PROGRAMACION WEB I",
+        "group": "1",
+        "attendance": "/"
+      },
+      {
+        "name": "PROGRAMACION WEB III",
+        "group": "1",
+        "attendance": "/"
+      }
+    ],
+    "password": "1234"
+  },
+  {
+    "user": "admin",
+    "classes": [
+      {
+        "name": "PROPONIENDO LA INNOVACIÓN TECNOLÓGICA",
+        "group": "1",
+        "attendance": "/"
+      },
+      {
+        "name": "PROGRAMACION WEB I",
+        "group": "1",
+        "attendance": "/"
+      },
+      {
+        "name": "PROGRAMACION WEB III",
+        "group": "1",
+        "attendance": "/"
+      }
+    ],
+    "password": "admin"
+  }
+]
