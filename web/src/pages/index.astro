@@ -13,6 +13,7 @@ import Layout from "../layouts/Layout.astro";
               type="text"
               id="usuario"
               name="usuario"
+              autocomplete="off"
               required
               style="background-color: #deedf4;"
             />
@@ -23,6 +24,7 @@ import Layout from "../layouts/Layout.astro";
               type="password"
               id="contraseña"
               name="contraseña"
+              autocomplete="off"
               required
               style="background-color: #deedf4;"
             />
@@ -32,10 +34,30 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </div>
-  <div class="image-container">
-    <img src="/inicio/footer.png" alt="Imagen" />
+  <div class="mx-auto max-w-80 rounded">
+    <img src="/inicio/footer.png" alt="Imagen" class="rounded" />
   </div>
 </Layout>
+
+<script>
+  const usuario = document.getElementById("usuario");
+  const contraseña = document.getElementById("contraseña");
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const usuario = document.getElementById("usuario") as HTMLInputElement;
+    const contraseña = document.getElementById(
+      "contraseña"
+    ) as HTMLInputElement;
+
+    if (usuario.value === "ia.borisgay" && contraseña.value === "sisoy") {
+      window.location.href = "/webdesktop";
+    } else {
+      alert("Usuario o contraseña incorrectos");
+    }
+  });
+</script>
 
 <style>
   body {
@@ -51,8 +73,7 @@ import Layout from "../layouts/Layout.astro";
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin-top: -50px;
+    gap: 16px;
   }
 
   .login-box {
@@ -120,17 +141,5 @@ import Layout from "../layouts/Layout.astro";
 
   .login-form .btn-ingresar:hover {
     color: #0056b3; /* Color azul más oscuro al pasar el mouse */
-  }
-
-  .image-container {
-    margin-top: -170px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .image-container img {
-    width: calc(100% - 20px); /* Ajuste del ancho */
-    max-width: 320px; /* Mismo ancho que login-container */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
 </style>
