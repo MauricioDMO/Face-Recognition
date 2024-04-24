@@ -8,6 +8,7 @@ import Layout from "../layouts/Layout.astro";
     <p class="text-center mb-8">
       Aquí puedes ver las clases que impartes y la asistencia de tus alumnos.
     </p>
+    <p id="profesor" class="text-center"></p>
     <table class="m-auto outline-1 outline-gray-200 outline">
       <thead class="font-bold">
         <td>Clase</td>
@@ -30,9 +31,12 @@ import Layout from "../layouts/Layout.astro";
   const users = await fetch("./json/maestros.json").then((response) =>
     response.json()
   );
-  console.log(users);
 
-  const classes = users.find((user) => user.user === currentUser).classes;
+  const user = users.find((user) => user.user === currentUser);
+  const classes = user.classes;
+
+  document.getElementById("profesor").innerHTML =
+    `<strong>Profesor:</strong> ${user.name}`;
 
   classes.forEach((currentClass) => {
     const tr = document.createElement("tr");
