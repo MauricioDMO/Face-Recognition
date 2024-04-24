@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
   title: string;
   icon?: string;
@@ -15,13 +17,14 @@ const { title, icon = "/favicon.svg" } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href={icon} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body class="min-h-screen grid">
     <slot />
+    <style is:global>
+      html {
+        font-family: system-ui, sans-serif;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  html {
-    font-family: system-ui, sans-serif;
-  }
-</style>
