@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Clases impartidas" auth>
+  <section class="content-center grid">
+    <h1 class="text-center text-xl font-bold">Clases impartidas</h1>
+    <p class="text-center mb-8">
+      Aquí puedes ver las clases que impartes y la asistencia de tus alumnos.
+    </p>
+    <table class="m-auto outline-1 outline-gray-200 outline">
+      <thead class="font-bold">
+        <td>Clase</td>
+        <td class="text-center">Grupo</td>
+        <td>Asistencia</td>
+      </thead>
+    </table>
+    <a
+      href="/webdesktop"
+      class="bg-blue-500 text-white mt-8 mx-auto rounded-full px-4 py-2 inline-block hover:bg-blue-600"
+    >
+      Volver
+    </a>
+  </section>
+</Layout>
+
+<script>
+  const table = document.querySelector("table");
+  const currentUser = localStorage.getItem("user");
+  const users = await fetch("./json/maestros.json").then((response) =>
+    response.json()
+  );
+  console.log(users);
+
+  const classes = users.find((user) => user.user === currentUser).classes;
+
+  classes.forEach((currentClass) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${currentClass.name}</td>
+      <td class="text-center">${currentClass.group}</td>
+      <td class="grid place-items-center">
+        <a href="${currentClass.attendance}" download class="bg-green-600 mx-auto px-2 rounded-full hover:bg-green-400 transition">Ver asistencia</a>
+        
+      </td>
+    `;
+    table.appendChild(tr);
+  });
+</script>
+
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 720px;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  tr {
+    border-bottom: 1px solid #ddd;
+  }
+</style>
