@@ -60,7 +60,7 @@ import Layout from "../layouts/Layout.astro";
           user.user === currentUser.value && user.password === password.value
       )
     ) {
-      localStorage.setItem("usuario", currentUser.value);
+      localStorage.setItem("user", currentUser.value);
       window.location.href = "/webdesktop";
     } else {
       alert("Usuario o contraseña incorrectos");
